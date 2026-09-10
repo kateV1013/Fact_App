@@ -19,19 +19,22 @@
 <BorderPane prefHeight="560.0" prefWidth="760.0"
             xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="ni.edu.uam.fact_app.controller.ProductoController">
+            fx:controller="ni.edu.uam.fact_app.controller.ProductoController"
+            style="-fx-background-color: #f4f6f8;">
     <padding>
         <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
     </padding>
 
     <top>
-        <Label text="Gesti&#243;n de Productos" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+        <Label text="Gesti&#243;n de Productos"
+               style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #2f4f6f;" />
     </top>
 
     <center>
         <VBox spacing="14.0" BorderPane.alignment="CENTER">
             <children>
-                <GridPane hgap="10.0" vgap="10.0">
+                <GridPane hgap="10.0" vgap="10.0"
+                          style="-fx-background-color: #ffffff; -fx-border-color: #c4ced8; -fx-border-width: 1px; -fx-border-radius: 6px; -fx-background-radius: 6px; -fx-padding: 14px;">
                     <columnConstraints>
                         <ColumnConstraints minWidth="100.0" prefWidth="120.0" />
                         <ColumnConstraints hgrow="ALWAYS" minWidth="180.0" prefWidth="260.0" />
@@ -78,13 +81,17 @@
 
                 <HBox spacing="8.0">
                     <children>
-                        <Button fx:id="btnImagen" text="Seleccionar imagen" onAction="#seleccionarImagen" />
-                        <Button fx:id="btnGuardar" text="Guardar" onAction="#guardar" />
-                        <Button fx:id="btnCerrar" text="Cerrar" onAction="#cerrar" />
+                        <Button fx:id="btnImagen" text="Seleccionar imagen" onAction="#seleccionarImagen"
+                                style="-fx-background-color: #697887; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px; -fx-padding: 7px 13px;" />
+                        <Button fx:id="btnGuardar" text="Guardar" onAction="#guardar"
+                                style="-fx-background-color: #5b8c6a; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px; -fx-padding: 7px 13px;" />
+                        <Button fx:id="btnCerrar" text="Cerrar" onAction="#cerrar"
+                                style="-fx-background-color: #9a5b5b; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px; -fx-padding: 7px 13px;" />
                     </children>
                 </HBox>
 
-                <TableView fx:id="tblProductos" VBox.vgrow="ALWAYS">
+                <TableView fx:id="tblProductos" VBox.vgrow="ALWAYS"
+                           style="-fx-background-color: white; -fx-border-color: #c4ced8; -fx-border-width: 1px; -fx-border-radius: 6px;">
                     <columns>
                         <TableColumn fx:id="colCodigo" prefWidth="100.0" text="C&#243;digo" />
                         <TableColumn fx:id="colNombre" prefWidth="180.0" text="Nombre" />

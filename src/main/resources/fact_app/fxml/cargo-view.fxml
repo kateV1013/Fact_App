@@ -15,14 +15,17 @@
 <AnchorPane prefHeight="420.0" prefWidth="640.0"
             xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="ni.edu.uam.fact_app.controller.CargoController">
+            fx:controller="ni.edu.uam.fact_app.controller.CargoController"
+            style="-fx-background-color: #faf6ee;">
     <children>
         <VBox spacing="14.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0"
               AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="16.0">
             <children>
-                <Label text="Gestion de Cargos" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+                <Label text="Gestion de Cargos"
+                       style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #72542f;" />
 
-                <GridPane hgap="10.0" vgap="10.0">
+                <GridPane hgap="10.0" vgap="10.0"
+                          style="-fx-background-color: #ffffff; -fx-border-color: #d8c7a9; -fx-border-width: 1px; -fx-border-radius: 6px; -fx-background-radius: 6px;">
                     <padding>
                         <Insets bottom="4.0" left="0.0" right="0.0" top="4.0" />
                     </padding>
@@ -41,14 +44,19 @@
 
                 <HBox spacing="8.0">
                     <children>
-                        <Button fx:id="btnNuevo" text="Nuevo" onAction="#nuevo" />
-                        <Button fx:id="btnGuardar" text="Guardar" onAction="#guardar" />
-                        <Button fx:id="btnActualizar" text="Actualizar" onAction="#actualizar" />
-                        <Button fx:id="btnEliminar" text="Eliminar" onAction="#eliminar" />
+                        <Button fx:id="btnNuevo" text="Nuevo" onAction="#nuevo"
+                                style="-fx-background-color: #4f78a0; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px; -fx-padding: 7px 13px;" />
+                        <Button fx:id="btnGuardar" text="Guardar" onAction="#guardar"
+                                style="-fx-background-color: #5b8c6a; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px; -fx-padding: 7px 13px;" />
+                        <Button fx:id="btnActualizar" text="Actualizar" onAction="#actualizar"
+                                style="-fx-background-color: #9a7b4f; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px; -fx-padding: 7px 13px;" />
+                        <Button fx:id="btnEliminar" text="Eliminar" onAction="#eliminar"
+                                style="-fx-background-color: #9a5b5b; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px; -fx-padding: 7px 13px;" />
                     </children>
                 </HBox>
 
-                <TableView fx:id="tblCargos" VBox.vgrow="ALWAYS">
+                <TableView fx:id="tblCargos" VBox.vgrow="ALWAYS"
+                           style="-fx-background-color: white; -fx-border-color: #d8c7a9; -fx-border-width: 1px; -fx-border-radius: 6px;">
                     <columns>
                         <TableColumn fx:id="colId" prefWidth="90.0" text="ID" />
                         <TableColumn fx:id="colNombre" prefWidth="190.0" text="Nombre" />

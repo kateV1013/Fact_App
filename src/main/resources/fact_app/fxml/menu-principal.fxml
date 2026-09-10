@@ -13,13 +13,14 @@
 <BorderPane prefHeight="400.0" prefWidth="600.0"
             xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="ni.edu.uam.fact_app.controller.MenuPrincipalController">
+            fx:controller="ni.edu.uam.fact_app.controller.MenuPrincipalController"
+            style="-fx-background-color: #f4f6f8;">
     <top>
         <VBox>
             <children>
-                <MenuBar>
+                <MenuBar style="-fx-background-color: #2f4f6f;">
                     <menus>
-                        <Menu text="Archivo">
+                        <Menu text="Archivo" style="-fx-font-weight: bold;">
                             <items>
                                 <MenuItem fx:id="mnuCategorias" text="Categorias" onAction="#abrirCategorias" />
                                 <MenuItem fx:id="mnuCargos" text="Cargos" onAction="#abrirCargos" />
@@ -29,19 +30,24 @@
                         </Menu>
                     </menus>
                 </MenuBar>
-                <ToolBar>
+                <ToolBar style="-fx-background-color: #e3eaf1; -fx-padding: 10px; -fx-border-color: #c4ced8; -fx-border-width: 0 0 1px 0;">
                     <items>
-                        <Button fx:id="btnCategorias" text="Categorias" onAction="#abrirCategorias" />
-                        <Button fx:id="btnCargos" text="Cargos" onAction="#abrirCargos" />
-                        <Button fx:id="btnProductos" text="Productos" onAction="#abrirProductos" />
-                        <Button fx:id="btnSalir" text="Salir" onAction="#salir" />
+                        <Button fx:id="btnCategorias" text="Categorias" onAction="#abrirCategorias"
+                                style="-fx-background-color: #5b8c6a; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px; -fx-padding: 7px 14px;" />
+                        <Button fx:id="btnCargos" text="Cargos" onAction="#abrirCargos"
+                                style="-fx-background-color: #9a7b4f; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px; -fx-padding: 7px 14px;" />
+                        <Button fx:id="btnProductos" text="Productos" onAction="#abrirProductos"
+                                style="-fx-background-color: #4f78a0; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px; -fx-padding: 7px 14px;" />
+                        <Button fx:id="btnSalir" text="Salir" onAction="#salir"
+                                style="-fx-background-color: #9a5b5b; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px; -fx-padding: 7px 14px;" />
                     </items>
                 </ToolBar>
             </children>
         </VBox>
     </top>
     <center>
-        <Label text="Sistema de facturaci&#243;n" BorderPane.alignment="CENTER">
+        <Label text="Sistema de facturaci&#243;n" BorderPane.alignment="CENTER"
+               style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2f4f6f;">
             <padding>
                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>
