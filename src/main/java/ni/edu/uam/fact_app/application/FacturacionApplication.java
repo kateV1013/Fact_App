@@ -12,7 +12,7 @@ public class FacturacionApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(
-                FacturacionApplication.class.getResource("/fact_app/fxml/cargo-view.fxml")
+                FacturacionApplication.class.getResource("/fact_app/fxml/menu-principal.fxml")
         );
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Fact App");
