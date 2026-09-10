@@ -14,7 +14,8 @@
 
 <AnchorPane prefHeight="420.0" prefWidth="640.0"
             xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1">
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ni.edu.uam.fact_app.controller.CargoController">
     <children>
         <VBox spacing="14.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0"
               AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="16.0">
@@ -40,10 +41,10 @@
 
                 <HBox spacing="8.0">
                     <children>
-                        <Button fx:id="btnNuevo" text="Nuevo" />
-                        <Button fx:id="btnGuardar" text="Guardar" />
-                        <Button fx:id="btnActualizar" text="Actualizar" />
-                        <Button fx:id="btnEliminar" text="Eliminar" />
+                        <Button fx:id="btnNuevo" text="Nuevo" onAction="#nuevo" />
+                        <Button fx:id="btnGuardar" text="Guardar" onAction="#guardar" />
+                        <Button fx:id="btnActualizar" text="Actualizar" onAction="#actualizar" />
+                        <Button fx:id="btnEliminar" text="Eliminar" onAction="#eliminar" />
                     </children>
                 </HBox>
 

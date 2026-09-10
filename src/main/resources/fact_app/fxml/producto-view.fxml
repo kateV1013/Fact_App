@@ -55,7 +55,7 @@
                                    GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
                         <Label text="Categor&#237;a:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                        <ComboBox fx:id="cmbCategoria" promptText="Seleccione una categor&#237;a"
+                        <ComboBox fx:id="cmbCategoria" maxWidth="Infinity" promptText="Seleccione una categor&#237;a"
                                   GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
                         <Label text="Precio:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
@@ -86,12 +86,12 @@
 
                 <TableView fx:id="tblProductos" VBox.vgrow="ALWAYS">
                     <columns>
-                        <TableColumn prefWidth="100.0" text="C&#243;digo" />
-                        <TableColumn prefWidth="180.0" text="Nombre" />
-                        <TableColumn prefWidth="150.0" text="Categor&#237;a" />
-                        <TableColumn prefWidth="110.0" text="Precio" />
-                        <TableColumn prefWidth="100.0" text="Existencia" />
-                        <TableColumn prefWidth="90.0" text="Activo" />
+                        <TableColumn fx:id="colCodigo" prefWidth="100.0" text="C&#243;digo" />
+                        <TableColumn fx:id="colNombre" prefWidth="180.0" text="Nombre" />
+                        <TableColumn fx:id="colCategoria" prefWidth="150.0" text="Categor&#237;a" />
+                        <TableColumn fx:id="colPrecio" prefWidth="110.0" text="Precio" />
+                        <TableColumn fx:id="colExistencia" prefWidth="100.0" text="Existencia" />
+                        <TableColumn fx:id="colActivo" prefWidth="90.0" text="Activo" />
                     </columns>
                 </TableView>
             </children>

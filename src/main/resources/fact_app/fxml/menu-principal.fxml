@@ -21,6 +21,8 @@
                     <menus>
                         <Menu text="Archivo">
                             <items>
+                                <MenuItem fx:id="mnuCategorias" text="Categorias" onAction="#abrirCategorias" />
+                                <MenuItem fx:id="mnuCargos" text="Cargos" onAction="#abrirCargos" />
                                 <MenuItem fx:id="mnuProductos" text="Productos" onAction="#abrirProductos" />
                                 <MenuItem fx:id="mnuSalir" text="Salir" onAction="#salir" />
                             </items>
@@ -29,6 +31,8 @@
                 </MenuBar>
                 <ToolBar>
                     <items>
+                        <Button fx:id="btnCategorias" text="Categorias" onAction="#abrirCategorias" />
+                        <Button fx:id="btnCargos" text="Cargos" onAction="#abrirCargos" />
                         <Button fx:id="btnProductos" text="Productos" onAction="#abrirProductos" />
                         <Button fx:id="btnSalir" text="Salir" onAction="#salir" />
                     </items>
