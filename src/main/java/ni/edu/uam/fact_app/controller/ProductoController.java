@@ -2,7 +2,6 @@ package ni.edu.uam.fact_app.controller;
 
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,7 +25,7 @@ import java.math.BigDecimal;
 
 public class ProductoController {
 
-    private final ObservableList<Producto> productos = FXCollections.observableArrayList();
+    private final ObservableList<Producto> productos = DatosTemporales.getProductos();
     private String rutaImagenSeleccionada;
 
     @FXML
@@ -112,7 +111,7 @@ public class ProductoController {
         }
 
         Producto producto = new Producto(
-                productos.size() + 1,
+                DatosTemporales.siguienteIdProducto(),
                 txtCodigo.getText().trim(),
                 txtNombre.getText().trim(),
                 cmbCategoria.getValue(),
@@ -151,7 +150,7 @@ public class ProductoController {
         try {
             new BigDecimal(txtPrecio.getText().trim());
         } catch (NumberFormatException e) {
-            mostrarError("El precio debe ser un numero valido.");
+            mostrarError("El precio en cordobas debe ser un numero valido.");
             return false;
         }
 

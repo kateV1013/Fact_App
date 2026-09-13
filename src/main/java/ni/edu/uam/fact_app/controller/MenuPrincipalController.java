@@ -3,11 +3,31 @@ package ni.edu.uam.fact_app.controller;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
+import ni.edu.uam.fact_app.util.DatosTemporales;
 import ni.edu.uam.fact_app.util.SceneManager;
 
 import java.io.IOException;
+import java.math.RoundingMode;
 
 public class MenuPrincipalController {
+
+    @FXML
+    private Label lblProductosActivos;
+
+    @FXML
+    private Label lblUnidadesInventario;
+
+    @FXML
+    private Label lblCategoriasRegistradas;
+
+    @FXML
+    private Label lblValorInventario;
+
+    @FXML
+    private void initialize() {
+        actualizarResumen();
+    }
 
     @FXML
     private void abrirCategorias() {
@@ -34,10 +54,18 @@ public class MenuPrincipalController {
             alert.setContentText(e.getMessage());
             alert.showAndWait();
         }
+        actualizarResumen();
     }
 
     @FXML
     private void salir() {
         Platform.exit();
+    }
+
+    private void actualizarResumen() {
+        lblProductosActivos.setText(String.valueOf(DatosTemporales.totalProductosActivos()));
+        lblUnidadesInventario.setText(String.valueOf(DatosTemporales.totalUnidadesInventario()));
+        lblCategoriasRegistradas.setText(String.valueOf(DatosTemporales.totalCategoriasRegistradas()));
+        lblValorInventario.setText("C$ " + DatosTemporales.valorTotalInventario().setScale(2, RoundingMode.HALF_UP));
     }
 }

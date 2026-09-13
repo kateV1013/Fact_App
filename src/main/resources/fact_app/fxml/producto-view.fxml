@@ -68,8 +68,8 @@
                                   style="-fx-background-color: #fffaf0; -fx-border-color: #b88a50; -fx-border-radius: 4px; -fx-background-radius: 4px;"
                                   GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-                        <Label text="Precio:" style="-fx-text-fill: #4a2f22; -fx-font-weight: bold;" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-                        <TextField fx:id="txtPrecio" promptText="Precio de venta"
+                        <Label text="Precio (C$):" style="-fx-text-fill: #4a2f22; -fx-font-weight: bold;" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <TextField fx:id="txtPrecio" promptText="Precio de venta en córdobas"
                                    style="-fx-background-color: #fffaf0; -fx-border-color: #b88a50; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-text-fill: #2f2119; -fx-prompt-text-fill: #8a6a4d;"
                                    GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
@@ -153,7 +153,7 @@
                         <TableColumn fx:id="colCodigo" prefWidth="100.0" text="C&#243;digo" />
                         <TableColumn fx:id="colNombre" prefWidth="180.0" text="Nombre" />
                         <TableColumn fx:id="colCategoria" prefWidth="150.0" text="Categor&#237;a" />
-                        <TableColumn fx:id="colPrecio" prefWidth="110.0" text="Precio" />
+                        <TableColumn fx:id="colPrecio" prefWidth="110.0" text="Precio C$" />
                         <TableColumn fx:id="colExistencia" prefWidth="100.0" text="Existencia" />
                         <TableColumn fx:id="colActivo" prefWidth="90.0" text="Activo" />
                     </columns>

@@ -8,13 +8,16 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.util.Duration?>
 
-<BorderPane prefHeight="400.0" prefWidth="600.0"
+<BorderPane prefHeight="520.0" prefWidth="780.0"
             xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="ni.edu.uam.fact_app.controller.MenuPrincipalController"
@@ -129,11 +132,54 @@
         </VBox>
     </top>
     <center>
-        <Label text="Sistema de facturaci&#243;n" BorderPane.alignment="CENTER"
-               style="-fx-font-size: 31px; -fx-font-weight: bold; -fx-text-fill: #3d271c; -fx-effect: dropshadow(gaussian, rgba(255, 247, 222, 0.75), 1, 1, 0, 1);">
-            <padding>
-                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-            </padding>
-        </Label>
+        <VBox alignment="TOP_CENTER" spacing="18.0" BorderPane.alignment="CENTER"
+              style="-fx-padding: 22px;">
+            <children>
+                <Label text="Resumen de Inventario"
+                       style="-fx-font-size: 27px; -fx-font-weight: bold; -fx-text-fill: #3d271c; -fx-effect: dropshadow(gaussian, rgba(255, 247, 222, 0.75), 1, 1, 0, 1);" />
+                <HBox alignment="CENTER" spacing="22.0">
+                    <children>
+                        <StackPane prefHeight="300.0" prefWidth="335.0"
+                                   style="-fx-background-color: #fff3d6; -fx-border-color: #9b6a3b; -fx-border-width: 1.5px; -fx-border-radius: 8px; -fx-background-radius: 8px; -fx-padding: 12px; -fx-effect: dropshadow(gaussian, rgba(74, 47, 34, 0.18), 14, 0.15, 0, 3);">
+                            <children>
+                                <ImageView fitHeight="270.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/menu-principal.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </StackPane>
+                        <VBox prefWidth="350.0" spacing="14.0">
+                            <children>
+                                <VBox spacing="6.0" style="-fx-background-color: #fffaf0; -fx-border-color: #b88a50; -fx-border-radius: 7px; -fx-background-radius: 7px; -fx-padding: 14px 12px; -fx-effect: dropshadow(gaussian, rgba(74, 47, 34, 0.12), 8, 0.12, 0, 2);">
+                                    <children>
+                                        <Label text="Productos Distintos Activos" style="-fx-font-size: 12px; -fx-text-fill: #4a2f22;" />
+                                        <Label fx:id="lblProductosActivos" text="0" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #4f6f47;" />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="6.0" style="-fx-background-color: #fffaf0; -fx-border-color: #b88a50; -fx-border-radius: 7px; -fx-background-radius: 7px; -fx-padding: 14px 12px; -fx-effect: dropshadow(gaussian, rgba(74, 47, 34, 0.12), 8, 0.12, 0, 2);">
+                                    <children>
+                                        <Label text="Total Unidades en Inventario" style="-fx-font-size: 12px; -fx-text-fill: #4a2f22;" />
+                                        <Label fx:id="lblUnidadesInventario" text="0" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #386a79;" />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="6.0" style="-fx-background-color: #fffaf0; -fx-border-color: #b88a50; -fx-border-radius: 7px; -fx-background-radius: 7px; -fx-padding: 14px 12px; -fx-effect: dropshadow(gaussian, rgba(74, 47, 34, 0.12), 8, 0.12, 0, 2);">
+                                    <children>
+                                        <Label text="Categor&#237;as Registradas" style="-fx-font-size: 12px; -fx-text-fill: #4a2f22;" />
+                                        <Label fx:id="lblCategoriasRegistradas" text="0" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #6d4f6f;" />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="6.0" style="-fx-background-color: #fffaf0; -fx-border-color: #b88a50; -fx-border-radius: 7px; -fx-background-radius: 7px; -fx-padding: 14px 12px; -fx-effect: dropshadow(gaussian, rgba(74, 47, 34, 0.12), 8, 0.12, 0, 2);">
+                                    <children>
+                                        <Label text="Valor Total del Inventario" style="-fx-font-size: 12px; -fx-text-fill: #4a2f22;" />
+                                        <Label fx:id="lblValorInventario" text="C$ 0.00" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #8a5b22;" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
     </center>
 </BorderPane>
