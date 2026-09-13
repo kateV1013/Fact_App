@@ -2,7 +2,6 @@ package ni.edu.uam.fact_app.controller;
 
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -11,13 +10,17 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import ni.edu.uam.fact_app.model.Categoria;
+import ni.edu.uam.fact_app.util.DatosTemporales;
 
 public class CategoriaController {
 
-    private final ObservableList<Categoria> categorias = FXCollections.observableArrayList();
+    private final ObservableList<Categoria> categorias = DatosTemporales.getCategorias();
 
     @FXML
     private TextField txtId;
+
+    @FXML
+    private CheckBox chkIdAutomatico;
 
     @FXML
     private TextField txtNombre;
@@ -35,17 +38,20 @@ public class CategoriaController {
     private TableColumn<Categoria, String> colNombre;
 
     @FXML
-    private TableColumn<Categoria, Boolean> colActiva;
+    private TableColumn<Categoria, String> colActiva;
 
     @FXML
     private void initialize() {
         colId.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getId()));
         colNombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
-        colActiva.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().isActiva()));
+        colActiva.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().isActiva() ? "Si" : "No"));
 
         tblCategorias.setItems(categorias);
         tblCategorias.getSelectionModel().selectedItemProperty().addListener(
                 (observable, anterior, categoria) -> cargarCategoria(categoria)
+        );
+        chkIdAutomatico.selectedProperty().addListener(
+                (observable, anterior, automatico) -> actualizarModoId()
         );
 
         limpiarFormulario();
@@ -63,7 +69,7 @@ public class CategoriaController {
             return;
         }
 
-        Integer id = Integer.parseInt(txtId.getText().trim());
+        Integer id = obtenerId();
         if (buscarPorId(id) != null) {
             mostrarError("Ya existe una categoria con ese ID.");
             return;
@@ -86,7 +92,7 @@ public class CategoriaController {
             return;
         }
 
-        Integer id = Integer.parseInt(txtId.getText().trim());
+        Integer id = obtenerId();
         Categoria existente = buscarPorId(id);
         if (existente != null && existente != seleccionada) {
             mostrarError("Ya existe una categoria con ese ID.");
@@ -121,6 +127,8 @@ public class CategoriaController {
         txtId.setText(String.valueOf(categoria.getId()));
         txtNombre.setText(categoria.getNombre());
         chkActiva.setSelected(categoria.isActiva());
+        chkIdAutomatico.setSelected(false);
+        actualizarModoId();
     }
 
     private Categoria buscarPorId(Integer id) {
@@ -131,25 +139,46 @@ public class CategoriaController {
     }
 
     private boolean formularioValido() {
-        if (txtId.getText().isBlank() || txtNombre.getText().isBlank()) {
+        if ((!chkIdAutomatico.isSelected() && txtId.getText().isBlank()) || txtNombre.getText().isBlank()) {
             mostrarError("Complete todos los campos obligatorios.");
             return false;
         }
 
-        try {
-            Integer.parseInt(txtId.getText().trim());
-        } catch (NumberFormatException e) {
-            mostrarError("El ID debe ser un numero entero.");
-            return false;
+        if (!chkIdAutomatico.isSelected()) {
+            try {
+                Integer.parseInt(txtId.getText().trim());
+            } catch (NumberFormatException e) {
+                mostrarError("El ID debe ser un numero entero.");
+                return false;
+            }
         }
 
         return true;
     }
 
     private void limpiarFormulario() {
-        txtId.clear();
+        chkIdAutomatico.setSelected(true);
+        actualizarModoId();
         txtNombre.clear();
         chkActiva.setSelected(true);
+    }
+
+    private Integer obtenerId() {
+        if (chkIdAutomatico.isSelected()) {
+            return DatosTemporales.siguienteIdCategoria();
+        }
+
+        return Integer.parseInt(txtId.getText().trim());
+    }
+
+    private void actualizarModoId() {
+        boolean automatico = chkIdAutomatico.isSelected();
+        txtId.setDisable(automatico);
+        if (automatico) {
+            txtId.setText(String.valueOf(DatosTemporales.siguienteIdCategoria()));
+        } else if (tblCategorias.getSelectionModel().getSelectedItem() == null) {
+            txtId.clear();
+        }
     }
 
     private void mostrarError(String mensaje) {

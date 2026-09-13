@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -18,6 +19,9 @@ public class CargoController {
 
     @FXML
     private TextField txtId;
+
+    @FXML
+    private CheckBox chkIdAutomatico;
 
     @FXML
     private TextField txtNombre;
@@ -47,6 +51,9 @@ public class CargoController {
         tblCargos.getSelectionModel().selectedItemProperty().addListener(
                 (observable, anterior, cargo) -> cargarCargo(cargo)
         );
+        chkIdAutomatico.selectedProperty().addListener(
+                (observable, anterior, automatico) -> actualizarModoId()
+        );
 
         limpiarFormulario();
     }
@@ -63,7 +70,7 @@ public class CargoController {
             return;
         }
 
-        Integer id = Integer.parseInt(txtId.getText().trim());
+        Integer id = obtenerId();
         if (buscarPorId(id) != null) {
             mostrarError("Ya existe un cargo con ese ID.");
             return;
@@ -86,7 +93,7 @@ public class CargoController {
             return;
         }
 
-        Integer id = Integer.parseInt(txtId.getText().trim());
+        Integer id = obtenerId();
         Cargo existente = buscarPorId(id);
         if (existente != null && existente != seleccionado) {
             mostrarError("Ya existe un cargo con ese ID.");
@@ -121,6 +128,8 @@ public class CargoController {
         txtId.setText(String.valueOf(cargo.getId()));
         txtNombre.setText(cargo.getNombre());
         txtDescripcion.setText(cargo.getDescripcion());
+        chkIdAutomatico.setSelected(false);
+        actualizarModoId();
     }
 
     private Cargo buscarPorId(Integer id) {
@@ -131,25 +140,53 @@ public class CargoController {
     }
 
     private boolean formularioValido() {
-        if (txtId.getText().isBlank() || txtNombre.getText().isBlank()) {
+        if ((!chkIdAutomatico.isSelected() && txtId.getText().isBlank()) || txtNombre.getText().isBlank()) {
             mostrarError("Complete todos los campos obligatorios.");
             return false;
         }
 
-        try {
-            Integer.parseInt(txtId.getText().trim());
-        } catch (NumberFormatException e) {
-            mostrarError("El ID debe ser un numero entero.");
-            return false;
+        if (!chkIdAutomatico.isSelected()) {
+            try {
+                Integer.parseInt(txtId.getText().trim());
+            } catch (NumberFormatException e) {
+                mostrarError("El ID debe ser un numero entero.");
+                return false;
+            }
         }
 
         return true;
     }
 
     private void limpiarFormulario() {
-        txtId.clear();
+        chkIdAutomatico.setSelected(true);
+        actualizarModoId();
         txtNombre.clear();
         txtDescripcion.clear();
+    }
+
+    private Integer obtenerId() {
+        if (chkIdAutomatico.isSelected()) {
+            return siguienteId();
+        }
+
+        return Integer.parseInt(txtId.getText().trim());
+    }
+
+    private int siguienteId() {
+        return cargos.stream()
+                .mapToInt(Cargo::getId)
+                .max()
+                .orElse(0) + 1;
+    }
+
+    private void actualizarModoId() {
+        boolean automatico = chkIdAutomatico.isSelected();
+        txtId.setDisable(automatico);
+        if (automatico) {
+            txtId.setText(String.valueOf(siguienteId()));
+        } else if (tblCargos.getSelectionModel().getSelectedItem() == null) {
+            txtId.clear();
+        }
     }
 
     private void mostrarError(String mensaje) {

@@ -6,40 +6,123 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.util.Duration?>
 
 <BorderPane prefHeight="400.0" prefWidth="600.0"
             xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="ni.edu.uam.fact_app.controller.MenuPrincipalController"
-            style="-fx-background-color: #f4f6f8;">
+            style="-fx-background-color: linear-gradient(to bottom, #f2e4c8, #dfc99f); -fx-font-family: 'Georgia', 'Cambria', 'Times New Roman', serif;">
     <top>
         <VBox>
             <children>
-                <MenuBar style="-fx-background-color: #2f4f6f;">
+                <MenuBar style="-fx-background-color: linear-gradient(to bottom, #4a2f22, #2f1d16); -fx-border-color: #b98a4a; -fx-border-width: 0 0 2px 0;">
                     <menus>
-                        <Menu text="Archivo" style="-fx-font-weight: bold;">
+                        <Menu text="">
+                            <graphic>
+                                <Label text="Archivo" style="-fx-text-fill: #f7ead1; -fx-font-weight: bold;" />
+                            </graphic>
                             <items>
-                                <MenuItem fx:id="mnuCategorias" text="Categorias" onAction="#abrirCategorias" />
-                                <MenuItem fx:id="mnuCargos" text="Cargos" onAction="#abrirCargos" />
-                                <MenuItem fx:id="mnuProductos" text="Productos" onAction="#abrirProductos" />
-                                <MenuItem fx:id="mnuSalir" text="Salir" onAction="#salir" />
+                                <MenuItem fx:id="mnuCategorias" text="Categorías" onAction="#abrirCategorias">
+                                    <graphic>
+                                        <SVGPath content="M3 11h8V3H3v8zm2-6h4v4H5V5zm8-2v8h8V3h-8zm6 6h-4V5h4v4zM3 21h8v-8H3v8zm2-6h4v4H5v-4zm10 4v-4h4v4h-4zm-2 2h8v-8h-8v8z" scaleX="0.82" scaleY="0.82" style="-fx-fill: #4f6f47;" />
+                                    </graphic>
+                                </MenuItem>
+                                <MenuItem fx:id="mnuCargos" text="Cargos" onAction="#abrirCargos">
+                                    <graphic>
+                                        <SVGPath content="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z" scaleX="0.82" scaleY="0.82" style="-fx-fill: #6d4f6f;" />
+                                    </graphic>
+                                </MenuItem>
+                                <MenuItem fx:id="mnuProductos" text="Productos" onAction="#abrirProductos">
+                                    <graphic>
+                                        <SVGPath content="M20 2H4c-1 0-2 .9-2 2v3.01c0 .72.43 1.34 1 1.69V20c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8.7c.57-.35 1-.97 1-1.69V4c0-1.1-.9-2-2-2zM4 4h16v3H4V4zm1 16V9h14v11H5zm3-8h8v2H8z" scaleX="0.82" scaleY="0.82" style="-fx-fill: #386a79;" />
+                                    </graphic>
+                                </MenuItem>
+                                <MenuItem fx:id="mnuSalir" text="Salir" onAction="#salir">
+                                    <graphic>
+                                        <SVGPath content="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" scaleX="0.82" scaleY="0.82" style="-fx-fill: #8a3e33;" />
+                                    </graphic>
+                                </MenuItem>
                             </items>
                         </Menu>
                     </menus>
                 </MenuBar>
-                <ToolBar style="-fx-background-color: #e3eaf1; -fx-padding: 10px; -fx-border-color: #c4ced8; -fx-border-width: 0 0 1px 0;">
+                <ToolBar style="-fx-background-color: #d7bd8b; -fx-padding: 12px; -fx-border-color: #8b5e34; -fx-border-width: 0 0 2px 0;">
                     <items>
-                        <Button fx:id="btnCategorias" text="Categorias" onAction="#abrirCategorias"
-                                style="-fx-background-color: #5b8c6a; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px; -fx-padding: 7px 14px;" />
-                        <Button fx:id="btnCargos" text="Cargos" onAction="#abrirCargos"
-                                style="-fx-background-color: #9a7b4f; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px; -fx-padding: 7px 14px;" />
-                        <Button fx:id="btnProductos" text="Productos" onAction="#abrirProductos"
-                                style="-fx-background-color: #4f78a0; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px; -fx-padding: 7px 14px;" />
-                        <Button fx:id="btnSalir" text="Salir" onAction="#salir"
-                                style="-fx-background-color: #9a5b5b; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px; -fx-padding: 7px 14px;" />
+                        <Button fx:id="btnCategorias" onAction="#abrirCategorias" contentDisplay="GRAPHIC_ONLY"
+                                style="-fx-background-color: linear-gradient(to bottom, #4f6f47, #314b32); -fx-border-color: #d2a85f; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-border-width: 1.5px; -fx-padding: 7px; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(47, 29, 22, 0.35), 10, 0.2, 0, 2);">
+                            <tooltip>
+                                <Tooltip text="Categorías" style="-fx-background-color: #3d271c; -fx-text-fill: #f7ead1; -fx-font-weight: bold; -fx-background-radius: 4px; -fx-border-color: #c99b55; -fx-border-radius: 4px;">
+                                    <showDelay>
+                                        <Duration millis="100.0" />
+                                    </showDelay>
+                                </Tooltip>
+                            </tooltip>
+                            <graphic>
+                                <StackPane prefHeight="32.0" prefWidth="32.0">
+                                    <children>
+                                        <SVGPath content="M3 11h8V3H3v8zm2-6h4v4H5V5zm8-2v8h8V3h-8zm6 6h-4V5h4v4zM3 21h8v-8H3v8zm2-6h4v4H5v-4zm10 4v-4h4v4h-4zm-2 2h8v-8h-8v8z" scaleX="1.33" scaleY="1.33" style="-fx-fill: #fff8e8;" />
+                                    </children>
+                                </StackPane>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="btnCargos" onAction="#abrirCargos" contentDisplay="GRAPHIC_ONLY"
+                                style="-fx-background-color: linear-gradient(to bottom, #6d4f6f, #4a334c); -fx-border-color: #d2a85f; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-border-width: 1.5px; -fx-padding: 7px; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(47, 29, 22, 0.35), 10, 0.2, 0, 2);">
+                            <tooltip>
+                                <Tooltip text="Cargos" style="-fx-background-color: #3d271c; -fx-text-fill: #f7ead1; -fx-font-weight: bold; -fx-background-radius: 4px; -fx-border-color: #c99b55; -fx-border-radius: 4px;">
+                                    <showDelay>
+                                        <Duration millis="100.0" />
+                                    </showDelay>
+                                </Tooltip>
+                            </tooltip>
+                            <graphic>
+                                <StackPane prefHeight="32.0" prefWidth="32.0">
+                                    <children>
+                                        <SVGPath content="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z" scaleX="1.33" scaleY="1.33" style="-fx-fill: #fff8e8;" />
+                                    </children>
+                                </StackPane>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="btnProductos" onAction="#abrirProductos" contentDisplay="GRAPHIC_ONLY"
+                                style="-fx-background-color: linear-gradient(to bottom, #386a79, #234552); -fx-border-color: #d2a85f; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-border-width: 1.5px; -fx-padding: 7px; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(47, 29, 22, 0.35), 10, 0.2, 0, 2);">
+                            <tooltip>
+                                <Tooltip text="Productos" style="-fx-background-color: #3d271c; -fx-text-fill: #f7ead1; -fx-font-weight: bold; -fx-background-radius: 4px; -fx-border-color: #c99b55; -fx-border-radius: 4px;">
+                                    <showDelay>
+                                        <Duration millis="100.0" />
+                                    </showDelay>
+                                </Tooltip>
+                            </tooltip>
+                            <graphic>
+                                <StackPane prefHeight="32.0" prefWidth="32.0">
+                                    <children>
+                                        <SVGPath content="M20 2H4c-1 0-2 .9-2 2v3.01c0 .72.43 1.34 1 1.69V20c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8.7c.57-.35 1-.97 1-1.69V4c0-1.1-.9-2-2-2zM4 4h16v3H4V4zm1 16V9h14v11H5zm3-8h8v2H8z" scaleX="1.33" scaleY="1.33" style="-fx-fill: #fff8e8;" />
+                                    </children>
+                                </StackPane>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="btnSalir" onAction="#salir" contentDisplay="GRAPHIC_ONLY"
+                                style="-fx-background-color: linear-gradient(to bottom, #8a3e33, #5a251f); -fx-border-color: #d2a85f; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-border-width: 1.5px; -fx-padding: 7px; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(47, 29, 22, 0.35), 10, 0.2, 0, 2);">
+                            <tooltip>
+                                <Tooltip text="Salir" style="-fx-background-color: #3d271c; -fx-text-fill: #f7ead1; -fx-font-weight: bold; -fx-background-radius: 4px; -fx-border-color: #c99b55; -fx-border-radius: 4px;">
+                                    <showDelay>
+                                        <Duration millis="100.0" />
+                                    </showDelay>
+                                </Tooltip>
+                            </tooltip>
+                            <graphic>
+                                <StackPane prefHeight="32.0" prefWidth="32.0">
+                                    <children>
+                                        <SVGPath content="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" scaleX="1.33" scaleY="1.33" style="-fx-fill: #fff8e8;" />
+                                    </children>
+                                </StackPane>
+                            </graphic>
+                        </Button>
                     </items>
                 </ToolBar>
             </children>
@@ -47,7 +130,7 @@
     </top>
     <center>
         <Label text="Sistema de facturaci&#243;n" BorderPane.alignment="CENTER"
-               style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2f4f6f;">
+               style="-fx-font-size: 31px; -fx-font-weight: bold; -fx-text-fill: #3d271c; -fx-effect: dropshadow(gaussian, rgba(255, 247, 222, 0.75), 1, 1, 0, 1);">
             <padding>
                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>

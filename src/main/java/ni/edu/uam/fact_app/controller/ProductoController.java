@@ -19,6 +19,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import ni.edu.uam.fact_app.model.Categoria;
 import ni.edu.uam.fact_app.model.Producto;
+import ni.edu.uam.fact_app.util.DatosTemporales;
 
 import java.io.File;
 import java.math.BigDecimal;
@@ -68,16 +69,11 @@ public class ProductoController {
     private TableColumn<Producto, Integer> colExistencia;
 
     @FXML
-    private TableColumn<Producto, Boolean> colActivo;
+    private TableColumn<Producto, String> colActivo;
 
     @FXML
     private void initialize() {
-        cmbCategoria.setItems(FXCollections.observableArrayList(
-                new Categoria(1, "Bebidas", true),
-                new Categoria(2, "Alimentos", true),
-                new Categoria(3, "Limpieza", true),
-                new Categoria(4, "Tecnologia", true)
-        ));
+        cmbCategoria.setItems(DatosTemporales.getCategorias());
 
         colCodigo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCodigo()));
         colNombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
@@ -87,7 +83,7 @@ public class ProductoController {
         });
         colPrecio.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getPrecioVenta()));
         colExistencia.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getExistencia()));
-        colActivo.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().isActivo()));
+        colActivo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().isActivo() ? "Si" : "No"));
 
         tblProductos.setItems(productos);
     }
