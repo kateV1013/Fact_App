@@ -2,7 +2,6 @@ package ni.edu.uam.fact_app.controller;
 
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,10 +14,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import ni.edu.uam.fact_app.model.Cargo;
+import ni.edu.uam.fact_app.util.DatosTemporales;
 
 public class CargoController {
 
-    private final ObservableList<Cargo> cargos = FXCollections.observableArrayList();
+    private final ObservableList<Cargo> cargos = DatosTemporales.getCargos();
 
     @FXML
     private TextField txtId;
@@ -184,10 +184,7 @@ public class CargoController {
     }
 
     private int siguienteId() {
-        return cargos.stream()
-                .mapToInt(Cargo::getId)
-                .max()
-                .orElse(0) + 1;
+        return DatosTemporales.siguienteIdCargo();
     }
 
     private void actualizarModoId() {

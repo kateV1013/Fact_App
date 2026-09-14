@@ -171,6 +171,12 @@
                                 </VBox>
                                 <VBox spacing="6.0" style="-fx-background-color: #fffaf0; -fx-border-color: #b88a50; -fx-border-radius: 7px; -fx-background-radius: 7px; -fx-padding: 14px 12px; -fx-effect: dropshadow(gaussian, rgba(74, 47, 34, 0.12), 8, 0.12, 0, 2);">
                                     <children>
+                                        <Label text="Cargos Registrados" style="-fx-font-size: 12px; -fx-text-fill: #4a2f22;" />
+                                        <Label fx:id="lblCargosRegistrados" text="0" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #6d4f6f;" />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="6.0" style="-fx-background-color: #fffaf0; -fx-border-color: #b88a50; -fx-border-radius: 7px; -fx-background-radius: 7px; -fx-padding: 14px 12px; -fx-effect: dropshadow(gaussian, rgba(74, 47, 34, 0.12), 8, 0.12, 0, 2);">
+                                    <children>
                                         <Label text="Valor Total del Inventario" style="-fx-font-size: 12px; -fx-text-fill: #4a2f22;" />
                                         <Label fx:id="lblValorInventario" text="C$ 0.00" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #8a5b22;" />
                                     </children>

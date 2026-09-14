@@ -23,6 +23,9 @@ public class MenuPrincipalController {
     private Label lblCategoriasRegistradas;
 
     @FXML
+    private Label lblCargosRegistrados;
+
+    @FXML
     private Label lblValorInventario;
 
     @FXML
@@ -78,6 +81,7 @@ public class MenuPrincipalController {
         lblProductosActivos.setText(String.valueOf(DatosTemporales.totalProductosActivos()));
         lblUnidadesInventario.setText(String.valueOf(DatosTemporales.totalUnidadesInventario()));
         lblCategoriasRegistradas.setText(String.valueOf(DatosTemporales.totalCategoriasRegistradas()));
+        lblCargosRegistrados.setText(String.valueOf(DatosTemporales.totalCargosRegistrados()));
         lblValorInventario.setText("C$ " + DatosTemporales.valorTotalInventario().setScale(2, RoundingMode.HALF_UP));
     }
 }

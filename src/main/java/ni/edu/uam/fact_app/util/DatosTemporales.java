@@ -2,6 +2,7 @@ package ni.edu.uam.fact_app.util;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import ni.edu.uam.fact_app.model.Cargo;
 import ni.edu.uam.fact_app.model.Categoria;
 import ni.edu.uam.fact_app.model.Producto;
 
@@ -15,6 +16,7 @@ public final class DatosTemporales {
             new Categoria(3, "Limpieza", true),
             new Categoria(4, "Tecnologia", true)
     );
+    private static final ObservableList<Cargo> CARGOS = FXCollections.observableArrayList();
     private static final ObservableList<Producto> PRODUCTOS = FXCollections.observableArrayList();
 
     private DatosTemporales() {
@@ -28,6 +30,10 @@ public final class DatosTemporales {
         return PRODUCTOS;
     }
 
+    public static ObservableList<Cargo> getCargos() {
+        return CARGOS;
+    }
+
     public static int siguienteIdCategoria() {
         return CATEGORIAS.stream()
                 .mapToInt(Categoria::getId)
@@ -38,6 +44,13 @@ public final class DatosTemporales {
     public static int siguienteIdProducto() {
         return PRODUCTOS.stream()
                 .mapToInt(Producto::getId)
+                .max()
+                .orElse(0) + 1;
+    }
+
+    public static int siguienteIdCargo() {
+        return CARGOS.stream()
+                .mapToInt(Cargo::getId)
                 .max()
                 .orElse(0) + 1;
     }
@@ -56,6 +69,10 @@ public final class DatosTemporales {
 
     public static long totalCategoriasRegistradas() {
         return CATEGORIAS.size();
+    }
+
+    public static long totalCargosRegistrados() {
+        return CARGOS.size();
     }
 
     public static BigDecimal valorTotalInventario() {
