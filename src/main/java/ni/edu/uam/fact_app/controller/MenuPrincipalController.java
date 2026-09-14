@@ -3,6 +3,7 @@ package ni.edu.uam.fact_app.controller;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import ni.edu.uam.fact_app.util.DatosTemporales;
 import ni.edu.uam.fact_app.util.SceneManager;
@@ -59,7 +60,18 @@ public class MenuPrincipalController {
 
     @FXML
     private void salir() {
-        Platform.exit();
+        Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmacion.setTitle("Salir");
+        confirmacion.setHeaderText("Confirmar salida");
+        confirmacion.setContentText("¿Desea cerrar la aplicación?");
+
+        ButtonType btnSi = new ButtonType("Sí");
+        ButtonType btnNo = new ButtonType("No");
+        confirmacion.getButtonTypes().setAll(btnSi, btnNo);
+
+        confirmacion.showAndWait()
+                .filter(respuesta -> respuesta == btnSi)
+                .ifPresent(respuesta -> Platform.exit());
     }
 
     private void actualizarResumen() {

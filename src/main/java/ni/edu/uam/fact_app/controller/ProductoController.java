@@ -194,14 +194,22 @@ public class ProductoController {
         }
 
         try {
-            new BigDecimal(txtPrecio.getText().trim());
+            BigDecimal precio = new BigDecimal(txtPrecio.getText().trim());
+            if (precio.compareTo(BigDecimal.ZERO) <= 0) {
+                mostrarError("El precio debe ser mayor que cero.");
+                return false;
+            }
         } catch (NumberFormatException e) {
             mostrarError("El precio en cordobas debe ser un numero valido.");
             return false;
         }
 
         try {
-            Integer.parseInt(txtExistencia.getText().trim());
+            int existencia = Integer.parseInt(txtExistencia.getText().trim());
+            if (existencia < 0) {
+                mostrarError("La existencia no puede ser negativa.");
+                return false;
+            }
         } catch (NumberFormatException e) {
             mostrarError("La existencia debe ser un numero entero.");
             return false;
