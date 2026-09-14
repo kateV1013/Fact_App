@@ -3,12 +3,15 @@ package ni.edu.uam.fact_app.controller;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import ni.edu.uam.fact_app.model.Categoria;
 import ni.edu.uam.fact_app.util.DatosTemporales;
 
@@ -103,6 +106,7 @@ public class CategoriaController {
         seleccionada.setNombre(txtNombre.getText().trim());
         seleccionada.setActiva(chkActiva.isSelected());
         tblCategorias.refresh();
+        limpiarFormulario();
         mostrarInformacion("Categoria actualizada.");
     }
 
@@ -117,6 +121,12 @@ public class CategoriaController {
         categorias.remove(seleccionada);
         limpiarFormulario();
         mostrarInformacion("Categoria eliminada.");
+    }
+
+    @FXML
+    private void cerrar(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
     }
 
     private void cargarCategoria(Categoria categoria) {
@@ -157,6 +167,7 @@ public class CategoriaController {
     }
 
     private void limpiarFormulario() {
+        tblCategorias.getSelectionModel().clearSelection();
         chkIdAutomatico.setSelected(true);
         actualizarModoId();
         txtNombre.clear();

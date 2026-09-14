@@ -10,6 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
@@ -17,59 +18,49 @@
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.util.Duration?>
 
-<AnchorPane prefHeight="420.0" prefWidth="640.0"
+<AnchorPane prefHeight="500.0" prefWidth="700.0"
             xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="ni.edu.uam.fact_app.controller.CargoController"
             style="-fx-background-color: linear-gradient(to bottom, #f2e4c8, #dfc99f); -fx-font-family: 'Georgia', 'Cambria', 'Times New Roman', serif;">
     <children>
-        <VBox spacing="14.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0"
-              AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="16.0">
+        <VBox spacing="12.0" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="18.0"
+              AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="18.0">
             <children>
-                <Label text="Gestion de Cargos"
-                       style="-fx-font-size: 23px; -fx-font-weight: bold; -fx-text-fill: #3d271c;" />
+                <Label text="Gestión de Cargos"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #3d271c; -fx-effect: dropshadow(gaussian, rgba(255, 247, 222, 0.75), 1, 1, 0, 1);" />
 
                 <GridPane hgap="10.0" vgap="10.0"
                           style="-fx-background-color: #fff3d6; -fx-border-color: #9b6a3b; -fx-border-width: 1.5px; -fx-border-radius: 6px; -fx-background-radius: 6px; -fx-effect: dropshadow(gaussian, rgba(74, 47, 34, 0.18), 14, 0.15, 0, 3);">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="95.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="260.0" prefWidth="360.0" />
+                        <ColumnConstraints minWidth="135.0" prefWidth="150.0" />
+                    </columnConstraints>
                     <padding>
-                        <Insets bottom="4.0" left="0.0" right="0.0" top="4.0" />
+                        <Insets bottom="14.0" left="16.0" right="16.0" top="14.0" />
                     </padding>
                     <children>
                         <Label text="ID:" style="-fx-text-fill: #4a2f22; -fx-font-weight: bold;" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                        <TextField fx:id="txtId" promptText="ID" style="-fx-background-color: #fffaf0; -fx-border-color: #b88a50; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-text-fill: #2f2119; -fx-prompt-text-fill: #8a6a4d;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <TextField fx:id="txtId" promptText="ID" style="-fx-background-color: #fffaf0; -fx-border-color: #b88a50; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-text-fill: #2f2119; -fx-prompt-text-fill: #8a6a4d; -fx-padding: 7px 9px;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
                         <CheckBox fx:id="chkIdAutomatico" selected="true" text="ID automático"
                                   style="-fx-text-fill: #4a2f22; -fx-font-weight: bold;"
                                   GridPane.columnIndex="2" GridPane.rowIndex="0" />
 
                         <Label text="Nombre:" style="-fx-text-fill: #4a2f22; -fx-font-weight: bold;" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                        <TextField fx:id="txtNombre" promptText="Nombre del cargo" style="-fx-background-color: #fffaf0; -fx-border-color: #b88a50; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-text-fill: #2f2119; -fx-prompt-text-fill: #8a6a4d;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtNombre" promptText="Nombre del cargo"
+                                   style="-fx-background-color: #fffaf0; -fx-border-color: #b88a50; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-text-fill: #2f2119; -fx-prompt-text-fill: #8a6a4d; -fx-padding: 7px 9px;"
+                                   GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
 
-                        <Label text="Descripcion:" style="-fx-text-fill: #4a2f22; -fx-font-weight: bold;" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                        <TextArea fx:id="txtDescripcion" prefRowCount="3" promptText="Descripcion del cargo"
-                                  style="-fx-background-color: #fffaf0; -fx-border-color: #b88a50; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-text-fill: #2f2119; -fx-prompt-text-fill: #8a6a4d;"
-                                  GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label text="Descripción:" style="-fx-text-fill: #4a2f22; -fx-font-weight: bold;" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <TextArea fx:id="txtDescripcion" prefRowCount="3" promptText="Descripción del cargo"
+                                  style="-fx-background-color: #fffaf0; -fx-border-color: #b88a50; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-text-fill: #2f2119; -fx-prompt-text-fill: #8a6a4d; -fx-padding: 7px 9px;"
+                                  GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
                     </children>
                 </GridPane>
 
-                <HBox spacing="8.0">
+                <HBox alignment="CENTER_LEFT" spacing="9.0">
                     <children>
-                        <Button fx:id="btnNuevo" onAction="#nuevo" contentDisplay="GRAPHIC_ONLY"
-                                style="-fx-background-color: linear-gradient(to bottom, #386a79, #234552); -fx-border-color: #d2a85f; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-border-width: 1.5px; -fx-padding: 7px; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(47, 29, 22, 0.35), 10, 0.2, 0, 2);">
-                            <tooltip>
-                                <Tooltip text="Nuevo" style="-fx-background-color: #3d271c; -fx-text-fill: #f7ead1; -fx-font-weight: bold; -fx-background-radius: 4px; -fx-border-color: #c99b55; -fx-border-radius: 4px;">
-                                    <showDelay>
-                                        <Duration millis="100.0" />
-                                    </showDelay>
-                                </Tooltip>
-                            </tooltip>
-                            <graphic>
-                                <StackPane prefHeight="32.0" prefWidth="32.0">
-                                    <children>
-                                        <SVGPath content="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" scaleX="1.33" scaleY="1.33" style="-fx-fill: #fff8e8;" />
-                                    </children>
-                                </StackPane>
-                            </graphic>
-                        </Button>
                         <Button fx:id="btnGuardar" onAction="#guardar" contentDisplay="GRAPHIC_ONLY"
                                 style="-fx-background-color: linear-gradient(to bottom, #4f6f47, #314b32); -fx-border-color: #d2a85f; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-border-width: 1.5px; -fx-padding: 7px; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(47, 29, 22, 0.35), 10, 0.2, 0, 2);">
                             <tooltip>
@@ -80,9 +71,9 @@
                                 </Tooltip>
                             </tooltip>
                             <graphic>
-                                <StackPane prefHeight="32.0" prefWidth="32.0">
+                                <StackPane prefHeight="28.0" prefWidth="28.0">
                                     <children>
-                                        <SVGPath content="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zM12 19c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zM6 8V5h9v3H6z" scaleX="1.33" scaleY="1.33" style="-fx-fill: #fff8e8;" />
+                                        <SVGPath content="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zM12 19c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zM6 8V5h9v3H6z" scaleX="1.16" scaleY="1.16" style="-fx-fill: #fff8e8;" />
                                     </children>
                                 </StackPane>
                             </graphic>
@@ -97,9 +88,9 @@
                                 </Tooltip>
                             </tooltip>
                             <graphic>
-                                <StackPane prefHeight="32.0" prefWidth="32.0">
+                                <StackPane prefHeight="28.0" prefWidth="28.0">
                                     <children>
-                                        <SVGPath content="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h8V3z" scaleX="1.33" scaleY="1.33" style="-fx-fill: #fff8e8;" />
+                                        <SVGPath content="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h8V3z" scaleX="1.16" scaleY="1.16" style="-fx-fill: #fff8e8;" />
                                     </children>
                                 </StackPane>
                             </graphic>
@@ -114,9 +105,26 @@
                                 </Tooltip>
                             </tooltip>
                             <graphic>
-                                <StackPane prefHeight="32.0" prefWidth="32.0">
+                                <StackPane prefHeight="28.0" prefWidth="28.0">
                                     <children>
-                                        <SVGPath content="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4z" scaleX="1.33" scaleY="1.33" style="-fx-fill: #fff8e8;" />
+                                        <SVGPath content="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4z" scaleX="1.16" scaleY="1.16" style="-fx-fill: #fff8e8;" />
+                                    </children>
+                                </StackPane>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="btnCerrar" onAction="#cerrar" contentDisplay="GRAPHIC_ONLY"
+                                style="-fx-background-color: linear-gradient(to bottom, #6d6a57, #474534); -fx-border-color: #d2a85f; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-border-width: 1.5px; -fx-padding: 7px; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(47, 29, 22, 0.35), 10, 0.2, 0, 2);">
+                            <tooltip>
+                                <Tooltip text="Cerrar" style="-fx-background-color: #3d271c; -fx-text-fill: #f7ead1; -fx-font-weight: bold; -fx-background-radius: 4px; -fx-border-color: #c99b55; -fx-border-radius: 4px;">
+                                    <showDelay>
+                                        <Duration millis="100.0" />
+                                    </showDelay>
+                                </Tooltip>
+                            </tooltip>
+                            <graphic>
+                                <StackPane prefHeight="28.0" prefWidth="28.0">
+                                    <children>
+                                        <SVGPath content="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" scaleX="1.16" scaleY="1.16" style="-fx-fill: #fff8e8;" />
                                     </children>
                                 </StackPane>
                             </graphic>
@@ -128,8 +136,8 @@
                            style="-fx-background-color: #fff3d6; -fx-border-color: #9b6a3b; -fx-border-width: 1.5px; -fx-border-radius: 6px; -fx-background-radius: 6px; -fx-effect: dropshadow(gaussian, rgba(74, 47, 34, 0.14), 10, 0.12, 0, 2);">
                     <columns>
                         <TableColumn fx:id="colId" prefWidth="90.0" text="ID" />
-                        <TableColumn fx:id="colNombre" prefWidth="190.0" text="Nombre" />
-                        <TableColumn fx:id="colDescripcion" prefWidth="320.0" text="Descripcion" />
+                        <TableColumn fx:id="colNombre" prefWidth="210.0" text="Nombre" />
+                        <TableColumn fx:id="colDescripcion" prefWidth="360.0" text="Descripción" />
                     </columns>
                 </TableView>
             </children>

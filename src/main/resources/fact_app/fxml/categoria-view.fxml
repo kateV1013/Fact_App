@@ -53,23 +53,6 @@
 
                 <HBox spacing="8.0">
                     <children>
-                        <Button fx:id="btnNuevo" onAction="#nuevo" contentDisplay="GRAPHIC_ONLY"
-                                style="-fx-background-color: linear-gradient(to bottom, #386a79, #234552); -fx-border-color: #d2a85f; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-border-width: 1.5px; -fx-padding: 7px; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(47, 29, 22, 0.35), 10, 0.2, 0, 2);">
-                            <tooltip>
-                                <Tooltip text="Nuevo" style="-fx-background-color: #3d271c; -fx-text-fill: #f7ead1; -fx-font-weight: bold; -fx-background-radius: 4px; -fx-border-color: #c99b55; -fx-border-radius: 4px;">
-                                    <showDelay>
-                                        <Duration millis="100.0" />
-                                    </showDelay>
-                                </Tooltip>
-                            </tooltip>
-                            <graphic>
-                                <StackPane prefHeight="32.0" prefWidth="32.0">
-                                    <children>
-                                        <SVGPath content="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" scaleX="1.33" scaleY="1.33" style="-fx-fill: #fff8e8;" />
-                                    </children>
-                                </StackPane>
-                            </graphic>
-                        </Button>
                         <Button fx:id="btnGuardar" onAction="#guardar" contentDisplay="GRAPHIC_ONLY"
                                 style="-fx-background-color: linear-gradient(to bottom, #4f6f47, #314b32); -fx-border-color: #d2a85f; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-border-width: 1.5px; -fx-padding: 7px; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(47, 29, 22, 0.35), 10, 0.2, 0, 2);">
                             <tooltip>
@@ -117,6 +100,23 @@
                                 <StackPane prefHeight="32.0" prefWidth="32.0">
                                     <children>
                                         <SVGPath content="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4z" scaleX="1.33" scaleY="1.33" style="-fx-fill: #fff8e8;" />
+                                    </children>
+                                </StackPane>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="btnCerrar" onAction="#cerrar" contentDisplay="GRAPHIC_ONLY"
+                                style="-fx-background-color: linear-gradient(to bottom, #6d6a57, #474534); -fx-border-color: #d2a85f; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-border-width: 1.5px; -fx-padding: 7px; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(47, 29, 22, 0.35), 10, 0.2, 0, 2);">
+                            <tooltip>
+                                <Tooltip text="Cerrar" style="-fx-background-color: #3d271c; -fx-text-fill: #f7ead1; -fx-font-weight: bold; -fx-background-radius: 4px; -fx-border-color: #c99b55; -fx-border-radius: 4px;">
+                                    <showDelay>
+                                        <Duration millis="100.0" />
+                                    </showDelay>
+                                </Tooltip>
+                            </tooltip>
+                            <graphic>
+                                <StackPane prefHeight="32.0" prefWidth="32.0">
+                                    <children>
+                                        <SVGPath content="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" scaleX="1.33" scaleY="1.33" style="-fx-fill: #fff8e8;" />
                                     </children>
                                 </StackPane>
                             </graphic>

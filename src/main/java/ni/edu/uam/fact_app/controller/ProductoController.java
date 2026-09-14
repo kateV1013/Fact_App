@@ -85,6 +85,9 @@ public class ProductoController {
         colActivo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().isActivo() ? "Si" : "No"));
 
         tblProductos.setItems(productos);
+        tblProductos.getSelectionModel().selectedItemProperty().addListener(
+                (observable, anterior, producto) -> cargarProducto(producto)
+        );
     }
 
     @FXML
@@ -110,6 +113,11 @@ public class ProductoController {
             return;
         }
 
+        if (buscarPorCodigo(txtCodigo.getText().trim()) != null) {
+            mostrarError("Ya existe un producto con ese codigo.");
+            return;
+        }
+
         Producto producto = new Producto(
                 DatosTemporales.siguienteIdProducto(),
                 txtCodigo.getText().trim(),
@@ -123,12 +131,50 @@ public class ProductoController {
 
         productos.add(producto);
         limpiarFormulario();
+        mostrarInformacion("Producto guardado temporalmente.");
+    }
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Productos");
-        alert.setHeaderText(null);
-        alert.setContentText("Producto guardado temporalmente.");
-        alert.showAndWait();
+    @FXML
+    private void actualizar() {
+        Producto seleccionado = tblProductos.getSelectionModel().getSelectedItem();
+        if (seleccionado == null) {
+            mostrarError("Seleccione un producto para actualizar.");
+            return;
+        }
+
+        if (!formularioValido()) {
+            return;
+        }
+
+        Producto existente = buscarPorCodigo(txtCodigo.getText().trim());
+        if (existente != null && existente != seleccionado) {
+            mostrarError("Ya existe un producto con ese codigo.");
+            return;
+        }
+
+        seleccionado.setCodigo(txtCodigo.getText().trim());
+        seleccionado.setNombre(txtNombre.getText().trim());
+        seleccionado.setCategoria(cmbCategoria.getValue());
+        seleccionado.setPrecioVenta(new BigDecimal(txtPrecio.getText().trim()));
+        seleccionado.setExistencia(Integer.parseInt(txtExistencia.getText().trim()));
+        seleccionado.setRutaImagen(rutaImagenSeleccionada);
+        seleccionado.setActivo(chkActivo.isSelected());
+        tblProductos.refresh();
+        limpiarFormulario();
+        mostrarInformacion("Producto actualizado.");
+    }
+
+    @FXML
+    private void eliminar() {
+        Producto seleccionado = tblProductos.getSelectionModel().getSelectedItem();
+        if (seleccionado == null) {
+            mostrarError("Seleccione un producto para eliminar.");
+            return;
+        }
+
+        productos.remove(seleccionado);
+        limpiarFormulario();
+        mostrarInformacion("Producto eliminado.");
     }
 
     @FXML
@@ -165,6 +211,7 @@ public class ProductoController {
     }
 
     private void limpiarFormulario() {
+        tblProductos.getSelectionModel().clearSelection();
         txtCodigo.clear();
         txtNombre.clear();
         cmbCategoria.getSelectionModel().clearSelection();
@@ -175,8 +222,43 @@ public class ProductoController {
         rutaImagenSeleccionada = null;
     }
 
+    private void cargarProducto(Producto producto) {
+        if (producto == null) {
+            return;
+        }
+
+        txtCodigo.setText(producto.getCodigo());
+        txtNombre.setText(producto.getNombre());
+        cmbCategoria.setValue(producto.getCategoria());
+        txtPrecio.setText(producto.getPrecioVenta().toString());
+        txtExistencia.setText(String.valueOf(producto.getExistencia()));
+        chkActivo.setSelected(producto.isActivo());
+        rutaImagenSeleccionada = producto.getRutaImagen();
+
+        if (rutaImagenSeleccionada == null || rutaImagenSeleccionada.isBlank()) {
+            imgProducto.setImage(null);
+        } else {
+            imgProducto.setImage(new Image(new File(rutaImagenSeleccionada).toURI().toString()));
+        }
+    }
+
+    private Producto buscarPorCodigo(String codigo) {
+        return productos.stream()
+                .filter(producto -> producto.getCodigo().equalsIgnoreCase(codigo))
+                .findFirst()
+                .orElse(null);
+    }
+
     private void mostrarError(String mensaje) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Productos");
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
+
+    private void mostrarInformacion(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Productos");
         alert.setHeaderText(null);
         alert.setContentText(mensaje);

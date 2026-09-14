@@ -20,13 +20,13 @@
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.util.Duration?>
 
-<BorderPane prefHeight="560.0" prefWidth="760.0"
+<BorderPane prefHeight="650.0" prefWidth="920.0"
             xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="ni.edu.uam.fact_app.controller.ProductoController"
             style="-fx-background-color: linear-gradient(to bottom, #f2e4c8, #dfc99f); -fx-font-family: 'Georgia', 'Cambria', 'Times New Roman', serif;">
     <padding>
-        <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+        <Insets bottom="20.0" left="22.0" right="22.0" top="20.0" />
     </padding>
 
     <top>
@@ -37,74 +37,80 @@
     <center>
         <VBox spacing="14.0" BorderPane.alignment="CENTER">
             <children>
-                <GridPane hgap="10.0" vgap="10.0"
-                          style="-fx-padding: 14px; -fx-background-color: #fff3d6; -fx-border-color: #9b6a3b; -fx-border-width: 1.5px; -fx-border-radius: 6px; -fx-background-radius: 6px; -fx-effect: dropshadow(gaussian, rgba(74, 47, 34, 0.18), 14, 0.15, 0, 3);">
+                <GridPane hgap="14.0" vgap="12.0"
+                          style="-fx-padding: 18px; -fx-background-color: #fff3d6; -fx-border-color: #9b6a3b; -fx-border-width: 1.5px; -fx-border-radius: 6px; -fx-background-radius: 6px; -fx-effect: dropshadow(gaussian, rgba(74, 47, 34, 0.18), 14, 0.15, 0, 3);">
                     <columnConstraints>
-                        <ColumnConstraints minWidth="100.0" prefWidth="120.0" />
-                        <ColumnConstraints hgrow="ALWAYS" minWidth="180.0" prefWidth="260.0" />
-                        <ColumnConstraints minWidth="120.0" prefWidth="160.0" />
+                        <ColumnConstraints minWidth="110.0" prefWidth="130.0" />
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="300.0" prefWidth="430.0" />
+                        <ColumnConstraints minWidth="230.0" prefWidth="260.0" />
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints minHeight="30.0" />
-                        <RowConstraints minHeight="30.0" />
-                        <RowConstraints minHeight="30.0" />
-                        <RowConstraints minHeight="30.0" />
-                        <RowConstraints minHeight="30.0" />
-                        <RowConstraints minHeight="30.0" />
+                        <RowConstraints minHeight="36.0" />
+                        <RowConstraints minHeight="36.0" />
+                        <RowConstraints minHeight="36.0" />
+                        <RowConstraints minHeight="36.0" />
+                        <RowConstraints minHeight="36.0" />
+                        <RowConstraints minHeight="36.0" />
                     </rowConstraints>
                     <children>
                         <Label text="C&#243;digo:" style="-fx-text-fill: #4a2f22; -fx-font-weight: bold;" GridPane.columnIndex="0" GridPane.rowIndex="0" />
                         <TextField fx:id="txtCodigo" promptText="C&#243;digo &#250;nico"
-                                   style="-fx-background-color: #fffaf0; -fx-border-color: #b88a50; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-text-fill: #2f2119; -fx-prompt-text-fill: #8a6a4d;"
+                                   style="-fx-background-color: #fffaf0; -fx-border-color: #b88a50; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-text-fill: #2f2119; -fx-prompt-text-fill: #8a6a4d; -fx-padding: 7px 9px;"
                                    GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
                         <Label text="Nombre:" style="-fx-text-fill: #4a2f22; -fx-font-weight: bold;" GridPane.columnIndex="0" GridPane.rowIndex="1" />
                         <TextField fx:id="txtNombre" promptText="Nombre"
-                                   style="-fx-background-color: #fffaf0; -fx-border-color: #b88a50; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-text-fill: #2f2119; -fx-prompt-text-fill: #8a6a4d;"
+                                   style="-fx-background-color: #fffaf0; -fx-border-color: #b88a50; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-text-fill: #2f2119; -fx-prompt-text-fill: #8a6a4d; -fx-padding: 7px 9px;"
                                    GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
                         <Label text="Categor&#237;a:" style="-fx-text-fill: #4a2f22; -fx-font-weight: bold;" GridPane.columnIndex="0" GridPane.rowIndex="2" />
                         <ComboBox fx:id="cmbCategoria" maxWidth="Infinity" promptText="Seleccione una categor&#237;a"
-                                  style="-fx-background-color: #fffaf0; -fx-border-color: #b88a50; -fx-border-radius: 4px; -fx-background-radius: 4px;"
+                                  style="-fx-background-color: #fffaf0; -fx-border-color: #b88a50; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-padding: 3px 5px;"
                                   GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
                         <Label text="Precio (C$):" style="-fx-text-fill: #4a2f22; -fx-font-weight: bold;" GridPane.columnIndex="0" GridPane.rowIndex="3" />
                         <TextField fx:id="txtPrecio" promptText="Precio de venta en córdobas"
-                                   style="-fx-background-color: #fffaf0; -fx-border-color: #b88a50; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-text-fill: #2f2119; -fx-prompt-text-fill: #8a6a4d;"
+                                   style="-fx-background-color: #fffaf0; -fx-border-color: #b88a50; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-text-fill: #2f2119; -fx-prompt-text-fill: #8a6a4d; -fx-padding: 7px 9px;"
                                    GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
                         <Label text="Existencia:" style="-fx-text-fill: #4a2f22; -fx-font-weight: bold;" GridPane.columnIndex="0" GridPane.rowIndex="4" />
                         <TextField fx:id="txtExistencia" promptText="Existencia"
-                                   style="-fx-background-color: #fffaf0; -fx-border-color: #b88a50; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-text-fill: #2f2119; -fx-prompt-text-fill: #8a6a4d;"
+                                   style="-fx-background-color: #fffaf0; -fx-border-color: #b88a50; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-text-fill: #2f2119; -fx-prompt-text-fill: #8a6a4d; -fx-padding: 7px 9px;"
                                    GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
                         <CheckBox fx:id="chkActivo" selected="true" text="Activo"
                                   style="-fx-text-fill: #4a2f22; -fx-font-weight: bold;"
                                   GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
-                        <Button fx:id="btnImagen" onAction="#seleccionarImagen" contentDisplay="GRAPHIC_ONLY"
-                                style="-fx-background-color: linear-gradient(to bottom, #6d6a57, #474534); -fx-border-color: #d2a85f; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-border-width: 1.5px; -fx-padding: 7px; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(47, 29, 22, 0.35), 10, 0.2, 0, 2);"
-                                GridPane.columnIndex="2" GridPane.rowIndex="5">
-                            <tooltip>
-                                <Tooltip text="Seleccionar imagen" style="-fx-background-color: #3d271c; -fx-text-fill: #f7ead1; -fx-font-weight: bold; -fx-background-radius: 4px; -fx-border-color: #c99b55; -fx-border-radius: 4px;">
-                                    <showDelay>
-                                        <Duration millis="100.0" />
-                                    </showDelay>
-                                </Tooltip>
-                            </tooltip>
-                            <graphic>
-                                <StackPane prefHeight="32.0" prefWidth="32.0">
+                        <VBox alignment="CENTER" spacing="10.0" GridPane.columnIndex="2" GridPane.rowIndex="0" GridPane.rowSpan="6">
+                            <children>
+                                <Label text="Imagen del producto" style="-fx-text-fill: #4a2f22; -fx-font-weight: bold;" />
+                                <StackPane prefHeight="170.0" prefWidth="230.0"
+                                           style="-fx-background-color: #f8f0de; -fx-border-color: #b88a50; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-padding: 6px;">
                                     <children>
-                                        <SVGPath content="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 11.5l2.5 3.01L14.5 10l4.5 6H5l3.5-4.5z" scaleX="1.33" scaleY="1.33" style="-fx-fill: #fff8e8;" />
+                                        <ImageView fx:id="imgProducto" fitHeight="158.0" fitWidth="218.0"
+                                                   pickOnBounds="true" preserveRatio="true" />
                                     </children>
                                 </StackPane>
-                            </graphic>
-                        </Button>
-
-                        <ImageView fx:id="imgProducto" fitHeight="150.0" fitWidth="150.0"
-                                   pickOnBounds="true" preserveRatio="true"
-                                   GridPane.columnIndex="2" GridPane.rowIndex="0"
-                                   GridPane.rowSpan="5" />
+                                <Button fx:id="btnImagen" onAction="#seleccionarImagen" contentDisplay="GRAPHIC_ONLY"
+                                        style="-fx-background-color: linear-gradient(to bottom, #6d6a57, #474534); -fx-border-color: #d2a85f; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-border-width: 1.5px; -fx-padding: 7px; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(47, 29, 22, 0.35), 10, 0.2, 0, 2);">
+                                    <tooltip>
+                                        <Tooltip text="Seleccionar imagen" style="-fx-background-color: #3d271c; -fx-text-fill: #f7ead1; -fx-font-weight: bold; -fx-background-radius: 4px; -fx-border-color: #c99b55; -fx-border-radius: 4px;">
+                                            <showDelay>
+                                                <Duration millis="100.0" />
+                                            </showDelay>
+                                        </Tooltip>
+                                    </tooltip>
+                                    <graphic>
+                                        <StackPane prefHeight="32.0" prefWidth="32.0">
+                                            <children>
+                                                <SVGPath content="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 11.5l2.5 3.01L14.5 10l4.5 6H5l3.5-4.5z" scaleX="1.33" scaleY="1.33" style="-fx-fill: #fff8e8;" />
+                                            </children>
+                                        </StackPane>
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </VBox>
                     </children>
                 </GridPane>
 
@@ -123,6 +129,40 @@
                                 <StackPane prefHeight="32.0" prefWidth="32.0">
                                     <children>
                                         <SVGPath content="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zM12 19c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zM6 8V5h9v3H6z" scaleX="1.33" scaleY="1.33" style="-fx-fill: #fff8e8;" />
+                                    </children>
+                                </StackPane>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="btnActualizar" onAction="#actualizar" contentDisplay="GRAPHIC_ONLY"
+                                style="-fx-background-color: linear-gradient(to bottom, #c9923f, #8a5b22); -fx-border-color: #f4d18a; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-border-width: 1.5px; -fx-padding: 7px; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(47, 29, 22, 0.35), 10, 0.2, 0, 2);">
+                            <tooltip>
+                                <Tooltip text="Actualizar" style="-fx-background-color: #3d271c; -fx-text-fill: #f7ead1; -fx-font-weight: bold; -fx-background-radius: 4px; -fx-border-color: #c99b55; -fx-border-radius: 4px;">
+                                    <showDelay>
+                                        <Duration millis="100.0" />
+                                    </showDelay>
+                                </Tooltip>
+                            </tooltip>
+                            <graphic>
+                                <StackPane prefHeight="32.0" prefWidth="32.0">
+                                    <children>
+                                        <SVGPath content="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h8V3z" scaleX="1.33" scaleY="1.33" style="-fx-fill: #fff8e8;" />
+                                    </children>
+                                </StackPane>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="btnEliminar" onAction="#eliminar" contentDisplay="GRAPHIC_ONLY"
+                                style="-fx-background-color: linear-gradient(to bottom, #8a3e33, #5a251f); -fx-border-color: #d2a85f; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-border-width: 1.5px; -fx-padding: 7px; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(47, 29, 22, 0.35), 10, 0.2, 0, 2);">
+                            <tooltip>
+                                <Tooltip text="Eliminar" style="-fx-background-color: #3d271c; -fx-text-fill: #f7ead1; -fx-font-weight: bold; -fx-background-radius: 4px; -fx-border-color: #c99b55; -fx-border-radius: 4px;">
+                                    <showDelay>
+                                        <Duration millis="100.0" />
+                                    </showDelay>
+                                </Tooltip>
+                            </tooltip>
+                            <graphic>
+                                <StackPane prefHeight="32.0" prefWidth="32.0">
+                                    <children>
+                                        <SVGPath content="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4z" scaleX="1.33" scaleY="1.33" style="-fx-fill: #fff8e8;" />
                                     </children>
                                 </StackPane>
                             </graphic>
@@ -150,11 +190,11 @@
                 <TableView fx:id="tblProductos" VBox.vgrow="ALWAYS"
                            style="-fx-background-color: #fff3d6; -fx-border-color: #9b6a3b; -fx-border-width: 1.5px; -fx-border-radius: 6px; -fx-background-radius: 6px; -fx-effect: dropshadow(gaussian, rgba(74, 47, 34, 0.14), 10, 0.12, 0, 2);">
                     <columns>
-                        <TableColumn fx:id="colCodigo" prefWidth="100.0" text="C&#243;digo" />
-                        <TableColumn fx:id="colNombre" prefWidth="180.0" text="Nombre" />
-                        <TableColumn fx:id="colCategoria" prefWidth="150.0" text="Categor&#237;a" />
-                        <TableColumn fx:id="colPrecio" prefWidth="110.0" text="Precio C$" />
-                        <TableColumn fx:id="colExistencia" prefWidth="100.0" text="Existencia" />
+                        <TableColumn fx:id="colCodigo" prefWidth="120.0" text="C&#243;digo" />
+                        <TableColumn fx:id="colNombre" prefWidth="240.0" text="Nombre" />
+                        <TableColumn fx:id="colCategoria" prefWidth="180.0" text="Categor&#237;a" />
+                        <TableColumn fx:id="colPrecio" prefWidth="130.0" text="Precio C$" />
+                        <TableColumn fx:id="colExistencia" prefWidth="120.0" text="Existencia" />
                         <TableColumn fx:id="colActivo" prefWidth="90.0" text="Activo" />
                     </columns>
                 </TableView>

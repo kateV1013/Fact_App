@@ -4,13 +4,16 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import ni.edu.uam.fact_app.model.Cargo;
 
 public class CargoController {
@@ -104,6 +107,7 @@ public class CargoController {
         seleccionado.setNombre(txtNombre.getText().trim());
         seleccionado.setDescripcion(txtDescripcion.getText().trim());
         tblCargos.refresh();
+        limpiarFormulario();
         mostrarInformacion("Cargo actualizado.");
     }
 
@@ -118,6 +122,12 @@ public class CargoController {
         cargos.remove(seleccionado);
         limpiarFormulario();
         mostrarInformacion("Cargo eliminado.");
+    }
+
+    @FXML
+    private void cerrar(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
     }
 
     private void cargarCargo(Cargo cargo) {
@@ -158,6 +168,7 @@ public class CargoController {
     }
 
     private void limpiarFormulario() {
+        tblCargos.getSelectionModel().clearSelection();
         chkIdAutomatico.setSelected(true);
         actualizarModoId();
         txtNombre.clear();

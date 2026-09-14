@@ -18,12 +18,14 @@ public class FacturacionApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(
                 FacturacionApplication.class.getResource("/fact_app/fxml/menu-principal.fxml")
         );
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 780, 520);
         stage.setTitle("Fact App");
         stage.getIcons().add(new Image(Objects.requireNonNull(
                 FacturacionApplication.class.getResourceAsStream(ICONO_APP)
         )));
         stage.setScene(scene);
+        stage.setMinWidth(760);
+        stage.setMinHeight(520);
         stage.show();
     }
 }
