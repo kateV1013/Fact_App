@@ -1,6 +1,6 @@
 # Fact App
 
-Aplicacion de escritorio en JavaFX para gestionar categorias, cargos y productos de un inventario.
+Mini sistema de inventario desarrollado en JavaFX. Permite registrar y administrar categorias, cargos y productos desde una interfaz grafica sencilla.
 
 ## Requisitos
 
@@ -18,7 +18,3 @@ Aplicacion de escritorio en JavaFX para gestionar categorias, cargos y productos
 ```powershell
 .\mvnw.cmd -DskipTests compile
 ```
-
-## Nota
-
-Los datos se guardan solo temporalmente en memoria mientras la aplicacion esta abierta.
