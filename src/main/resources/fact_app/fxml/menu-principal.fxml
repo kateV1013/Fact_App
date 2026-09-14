@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.util.Duration?>
 
-<BorderPane prefHeight="520.0" prefWidth="780.0"
+<BorderPane prefHeight="590.0" prefWidth="820.0"
             xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="ni.edu.uam.fact_app.controller.MenuPrincipalController"
@@ -139,10 +139,10 @@
                        style="-fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: #3d271c; -fx-effect: dropshadow(gaussian, rgba(255, 247, 222, 0.75), 1, 1, 0, 1);" />
                 <HBox alignment="CENTER" spacing="22.0">
                     <children>
-                        <StackPane prefHeight="280.0" prefWidth="335.0"
+                        <StackPane prefHeight="250.0" prefWidth="305.0"
                                    style="-fx-background-color: #fff3d6; -fx-border-color: #9b6a3b; -fx-border-width: 1.5px; -fx-border-radius: 8px; -fx-background-radius: 8px; -fx-padding: 12px; -fx-effect: dropshadow(gaussian, rgba(74, 47, 34, 0.18), 14, 0.15, 0, 3);">
                             <children>
-                                <ImageView fitHeight="250.0" fitWidth="310.0" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fitHeight="220.0" fitWidth="280.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@../images/menu-principal.png" />
                                     </image>
