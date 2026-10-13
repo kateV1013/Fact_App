@@ -48,6 +48,11 @@ public class MenuPrincipalController {
         abrirVentana("/fact_app/fxml/producto-view.fxml", "Productos", "productos");
     }
 
+    @FXML
+    private void abrirMonitorProcesos() {
+        abrirVentana("/fact_app/fxml/monitor-procesos-view.fxml", "Monitor de procesos", "monitor de procesos");
+    }
+
     private void abrirVentana(String recurso, String titulo, String nombreVentana) {
         try {
             SceneManager.abrirVentana(recurso, titulo);
